@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DREAMCAKE</title>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins:wght@600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #A0522D; /* Chocolate brown */
+      --secondary: #FFF8F0; /* Cream white */
+      --accent: #E6B980; /* Caramel accent */
+      --text: #3E2C2C;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background-color: #A0522D;
+      color: var(--text);
+    }
+    
+    /* ===== FIXED HEADER ===== */
+    header {
+      background: var(--primary);
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+
+    /* Add space below fixed header */
+    body::before {
+      content: "";
+      display: block;
+      height: 90px; /* equal to header height */
+    }
+
+    header img {
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+
+    nav {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: var(--accent);
+    }
+
+    section {
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+
+    /* ===== INTRO SECTION ===== */
+    .intro {
+      background: url('assets/images/dreamcake-banner.jpg') center/cover no-repeat;
+      color: white;
+      padding: 6rem 2rem;
+      border-radius: 0 0 40px 40px;
+    }
+
+    .intro h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 2.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .intro p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin: auto;
+    }
+
+    /* ===== WHY CHOOSE US ===== */
+    .why-choose {
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+      margin: 3rem auto;
+      max-width: 1000px;
+      padding: 2rem;
+      
+    }
+
+    .why-choose h2 {
+      color: var(--primary);
+      font-family: 'Poppins', sans-serif;
+      margin-bottom: 1rem;
+    }
+
+    .why-choose p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+
+    /* ===== PRODUCT / SERVICES SECTION ===== */
+    .products {
+      background: var(--secondary);
+      padding: 4rem 2rem;
+    }
+
+    .products h2 {
+      font-family: 'Poppins', sans-serif;
+      color: var(--primary);
+      margin-bottom: 2rem;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .product {
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .product:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+    }
+
+    .product img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .product h3 {
+      color: var(--primary);
+      font-family: 'Poppins', sans-serif;
+      margin: 1rem 0 0.5rem;
+    }
+
+    .product p {
+      padding: 0 1rem 1.5rem;
+      font-size: 0.95rem;
+      color: #555;
+    }
+
+    /* ===== TESTIMONIALS ===== */
+    .testimonials {
+      background: var(--primary);
+      color: white;
+      border-radius: 15px;
+      padding: 2rem;
+      margin: 3rem auto;
+      max-width: 1000px;
+    }
+
+    .testimonial {
+      margin-bottom: 1.5rem;
+      font-style: italic;
+    }
+
+    .testimonial span {
+      display: block;
+      margin-top: 0.5rem;
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    /* ===== CONTACT SECTION ===== */
+    .contact {
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+      margin: 3rem auto;
+      max-width: 1000px;
+      padding: 2rem;
+    }
+
+    .contact h2 {
+      color: var(--primary);
+      font-family: 'Poppins', sans-serif;
+      margin-bottom: 1rem;
+    }
+
+    .contact p {
+      margin-bottom: 1rem;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: var(--primary);
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+      font-size: 0.9rem;
+      border-top: 3px solid var(--accent);
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      nav {
+        justify-content: center;
+      }
+
+      .intro h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="brand">
+      <img src="c:\Users\Administrator\Downloads\logo2.jpg" alt="Dreamcake Logo">
+      <span>DREAMCAKE</span>
+    </div>
+    <nav>
+      <a href="#intro">Home</a>
+      <a href="#products">Products</a>
+      <a href="#feedback">Feedback</a>
+      <a href="#contact">Contact</a>
+      <a href="#about">About</a>
+    </nav>
+  </header>
+
+  <section id="intro" class="intro">
+    <h1>Welcome to DREAMCAKE</h1>
+    <p>Where every bite feels like a dream. Indulge in our handmade cakes crafted with love and passion.</p>
+  </section>
+
+  <section id="about" class="why-choose">
+    <h2>Why Choose Us?</h2>
+    <p>At DREAMCAKE, we believe every celebration deserves a special touch. Our cakes are made from premium ingredients, baked fresh daily, and designed to make every occasion unforgettable. Taste the sweetness of happiness in every slice!</p>
+  </section>
+
+  <section id="products" class="products">
+  <h2>Our Products & Services</h2>
+  <div class="product-grid">
+
+    <div class="product">
+      <img src="c:\Users\Administrator\Downloads\Cookies n cream.jpg" alt="Cookies & Cream">
+      <h3>Cookies & Cream</h3>
+      <p>Moist chocolate base layered with creamy frosting and crunchy cookie bits for the perfect balance of sweetness and texture.</p>
+    </div>
+
+    <div class="product">
+      <img src="c:\Users\Administrator\Downloads\Matcha.jpg" alt="Matcha">
+      <h3>Matcha</h3>
+      <p>Delicate green tea sponge infused with premium matcha, layered with smooth cream cheese for a refined earthy flavor.</p>
+    </div>
+
+    <div class="product">
+      <img src="c:\Users\Administrator\Downloads\Chocolate.jpg" alt="Chocolate">
+      <h3>Chocolate</h3>
+      <p>Decadent chocolate cake made with rich cocoa and a velvety glaze that satisfies every sweet craving.</p>
+    </div>
+
+    <div class="product">
+      <img src="c:\Users\Administrator\Downloads\Ube.jpg" alt="Ube">
+      <h3>Ube</h3>
+      <p>Classic Filipino favorite — soft ube layers filled with creamy halaya and topped with a light, whipped frosting.</p>
+    </div>
+
+  </div>
+</section>
+
+
+  <section id="feedback" class="feedback">
+    <h2>Feedback</h2>
+
+    <img src="c:\Users\Administrator\Downloads\Feedback1.jpg">
+    <img src="c:\Users\Administrator\Downloads\Feedback2.jpg">
+    <img src="c:\Users\Administrator\Downloads\Feedback3.jpg">
+    <img src="c:\Users\Administrator\Downloads\Feedback4.jpg">
+    
+
+  </section>
+
+  <section id="contact" class="contact">
+    <h2>Contact Us</h2>
+    <p>📍 Location: 1065 Anonas St. Camarin, Caloocan City, Metro Manila</p>
+    <p>📞 Phone: +63 920 304 0538</p>
+    <p>📧 Email: dreamcake@gmail.com</p>
+  </section>
+
+  <footer>
+    Developed by: AQUINO, RAYMOND L. & LAVEGA, JEVA G. | &copy; 2025 DREAMCAKE. All Rights Reserved.
+  </footer>
+
+</body>
+</html>
